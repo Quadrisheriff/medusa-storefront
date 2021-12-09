@@ -1,0 +1,24 @@
+{
+  "name": "11ty-storefront",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "rm -rf _site && mkdir _site && postcss css/index.css -o _site/css/index.css && eleventy --serve --quiet",
+    "build": "rm -rf _site && eleventy && NODE_ENV=production postcss css/index.css -o _site/css/index.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.0",
+    "axios": "^0.24.0",
+    "eleventy-plugin-error-overlay": "^0.1.2",
+    "html-minifier": "^4.0.0",
+    "postcss-cli": "^9.0.2",
+    "tailwindcss": "^2.2.19"
+  }
+}
