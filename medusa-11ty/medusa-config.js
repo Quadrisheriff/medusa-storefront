@@ -22,11 +22,11 @@ const plugins = [
   {
     resolve: `medusa-file-spaces`,
     options: {
-      spaces_url: "",
-      bucket: "",
+      spaces_url: "https://medusa.fra1.digitaloceanspaces.com",
+      bucket: "medusa",
       endpoint: "fra1.digitaloceanspaces.com",
-      access_key_id: "",
-      secret_access_key: "",
+      access_key_id: "O7JWMGASSCDRJJFVRQYT",
+      secret_access_key: "IjnU47E9G3hYcrZmcC7L2aqdY6Hck1nd1hWQ6b7SfrU",
     },
   },
 ];

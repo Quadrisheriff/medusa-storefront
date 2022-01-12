@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>medusa storefront</title>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <div>{% include "header.njk" %}</div>
+  <div>
+    <body>
+      <div>
+        {{ content | safe }}
+      </div>
+    </body>
+  </div>
+  <div>{% include "footer.njk" %}</div>
+</html>

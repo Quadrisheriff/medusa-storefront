@@ -1,5 +1,5 @@
 ---
-layout: layout.liquid
+layout: layout.njk
 pagination:
   data: products
   size: 1
@@ -104,33 +104,49 @@ title: { { product.title } }
       {{ product.title }}
     </h1>
     <div class="flex justify-center space-y-6"><p class="text-gray-900">{{ product.description }}</p></div>
-    <p class="text-3xl flex justify-center text-gray-900">$ {{ product.variants.0.prices.0.amount }}</p>
     <p class="text-sm font-bold flex justify-center text-gray-900">{{ product.collection.title }}</p>
     <p class="text-sm font-bold flex justify-center text-gray-900">Product ID = {{ product.id }}</p>
-    <button
-      type="submit"
-      class="
-        mt-10
-        w-full
-        bg-blue-900
-        border border-transparent
-        rounded-md
-        py-3
-        px-8
-        flex
-        items-center
-        justify-center
-        text-base
-        font-medium
-        text-white
-        hover:bg-indigo-700
-        focus:outline-none
-        focus:ring-2
-        focus:ring-offset-2
-        focus:ring-indigo-500
-      "
-    >
-      Add to cart
-    </button>
+    <p class="text-sm font-bold flex justify-center text-gray-900">${{ product.variants.0.prices.0.amount }}</p>
+    <form>
+      <div class="flex space-x-3">
+        <h1 class=" flex justify-center mb-5 text-lg font-bold tracking-tight text-gray-900">Quantity -</h1>
+        <input type="number" name="quantity" value="1" min="0" max="10" class="flex border text-blue-900 py-1 items-center border-indigo-700" />
+      </div>
+      <h1 class=" flex justify-center mb-5 text-lg font-bold tracking-tight text-gray-900">Variants</h1>
+      <div class="flex mt-2">
+      {%- for variant in product.variants -%}
+        <label for="{{ variant.id }}">
+          {{ variant.title }} - {{ variant.prices.amount }}
+          <span></span>
+        </label>
+        <input id="{{ variant.id }}" name="{{ variantId }}" type="radio" value="{{ variant.id }}" class="flex border text-blue-900 border-indigo-700 w-full">
+      {%- endfor -%}
+      </div>
+      <button
+        type="submit"
+        class="
+          mt-10
+          w-full
+          bg-blue-900
+          border border-transparent
+          rounded-md
+          py-3
+          px-8
+          flex
+          items-center
+          justify-center
+          text-base
+          font-medium
+          text-white
+          hover:bg-indigo-700
+          focus:outline-none
+          focus:ring-2
+          focus:ring-offset-2
+          focus:ring-indigo-500
+        "
+      >
+        Add to cart
+      </button>
+    </form>
   </div>
 </div>

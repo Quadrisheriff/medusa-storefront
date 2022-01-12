@@ -1,7 +1,7 @@
 ---
 title: Home
-layout: layout.liquid
+layout: layout.njk
 ---
 
-{% include hero.liquid %}   
-{% include product.liquid %}
+{% include hero.njk %}   
+{% include product.njk %}

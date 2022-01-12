@@ -1,0 +1,32 @@
+<div  class="
+    grid grid-cols-1
+    gap-y-10
+    sm:grid-cols-2
+    gap-x-6
+    lg:grid-cols-3
+    max-w-6xl
+    mx-auto
+  "
+>
+{%- for product in products -%}
+  <a  key="{{ product.id }}"
+          href="/{{ product.handle }}.html"
+          class="group">
+    <img
+      src="{{ product.thumbnail }}"
+      alt="{{ product.id }}"
+      class="
+        w-5/6
+        h-60
+        rounded-md
+        border
+        border-gray-500
+        object-center object-cover
+        group-hover:opacity-75
+      "
+    />
+    <h3 class="w-1/2 mx-auto text-indigo-600">{{ product.title }}</h3>
+    <h3 class="w-1/2 mx-auto text-gray-500">${{ product.variants.0.prices.0.amount }}</h3>
+  </a>
+{%- endfor -%}
+</div>
