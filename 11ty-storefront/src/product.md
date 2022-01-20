@@ -76,18 +76,14 @@ title: { { product.title } }
     pb-16
     px-4
     sm:px-6
-    lg:max-w-7xl
+    lg:max-w-4xl
     lg:pt-16
     lg:pb-24
     lg:px-8
-    lg:grid
-    lg:grid-cols-3
-    lg:grid-rows-[auto,auto,1fr]
-    lg:gap-x-8
   "
 >
   <div
-    class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8 mt-4 lg:mt-0"
+    class="mt-4 space-y-3 lg:mt-0"
   >
     <h1
       class="
@@ -103,23 +99,30 @@ title: { { product.title } }
     >
       {{ product.title }}
     </h1>
-    <div class="flex justify-center space-y-6"><p class="text-gray-900">{{ product.description }}</p></div>
-    <p class="text-sm font-bold flex justify-center text-gray-900">{{ product.collection.title }}</p>
-    <p class="text-sm font-bold flex justify-center text-gray-900">Product ID = {{ product.id }}</p>
-    <p class="text-sm font-bold flex justify-center text-gray-900">${{ product.variants.0.prices.0.amount }}</p>
+    <div class="space-y-6">
+      <p class="flex justify-center text-gray-900">{{ product.description }}</p>
+      <div class="flex justify-center">
+        <p class="text-sm font-bold text-gray-900">Product collection -</p>
+        <p class="text-sm font-bold text-indigo-700">{{ product.collection.title }}</p>
+      </div>
+      <div class="flex justify-center">
+        <p class="text-sm font-bold text-gray-900">Price -</p>
+        <p class="text-sm font-bold text-indigo-700">${{ product.variants.0.prices.0.amount }}</p>
+      </div>
+     </div>
     <form>
-      <div class="flex space-x-3">
-        <h1 class=" flex justify-center mb-5 text-lg font-bold tracking-tight text-gray-900">Quantity -</h1>
-        <input type="number" name="quantity" value="1" min="0" max="10" class="flex border text-blue-900 py-1 items-center border-indigo-700" />
+      <div class="flex justify-center space-x-3 mb-5">
+        <h1 class=" flex justify-center text-lg font-bold tracking-tight text-gray-900">Quantity -</h1>
+        <input type="number" name="quantity" value="1" min="0" max="10" class="flex border-2 rounded-md text-blue-900 px-1 py-1 border-indigo-700" />
       </div>
       <h1 class=" flex justify-center mb-5 text-lg font-bold tracking-tight text-gray-900">Variants</h1>
-      <div class="flex mt-2">
+      <div class="flex mt-2 max-w-xl mx-auto">
       {%- for variant in product.variants -%}
         <label for="{{ variant.id }}">
-          {{ variant.title }} - {{ variant.prices.amount }}
+          {{ variant.title }}
           <span></span>
         </label>
-        <input id="{{ variant.id }}" name="{{ variantId }}" type="radio" value="{{ variant.id }}" class="flex border text-blue-900 border-indigo-700 w-full">
+        <input id="{{ variant.id }}" name="{{ variantId }}" type="radio" value="{{ variant.id }}" class="flex border -ml-24 mt-2 text-blue-900 border-indigo-700 w-full">
       {%- endfor -%}
       </div>
       <button
